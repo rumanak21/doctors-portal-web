@@ -7,7 +7,7 @@ const Banner = () => {
         <div style={{backgroundImage: `url(${chairbg})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50px',
-        backgroundSize: '100%'
+        backgroundSize: '80%'
         }}>
             <div class="hero min-h-screen px-12">
                 <div class="hero-content flex-col lg:flex-row-reverse">
