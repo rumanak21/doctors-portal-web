@@ -1,4 +1,4 @@
-import { format } from 'date-fns/esm';
+import { format } from 'date-fns';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -24,7 +24,12 @@ const AvailableAppoinment = ({ date }) => {
                     setTreatment={setTreatment}
                 ></Service>)}
             </div>
-            {treatment && <BookingModal treatment={treatment}></BookingModal>}
+            {treatment && <BookingModal 
+            date={date} 
+            treatment={treatment}
+            setTreatment = {setTreatment}
+            
+            ></BookingModal>}
         </div>
 
     );
