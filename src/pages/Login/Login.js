@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [
@@ -18,8 +19,8 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     let signInError;
 
-    if (user) {
-        console.log(googleUser);
+    if (user || googleUser) {
+        console.log(user || googleUser);
     }
     if (loading || googleLoading) {
         return <Loading></Loading>
@@ -88,19 +89,19 @@ const Login = () => {
                                     },
                                     minLength: {
                                         value: 6,
-                                        message: 'Must be six character or longer.'
+                                        message: 'Must be six character or longer'
                                     }
                                 })}
                             />
                             <label class="label">
-                                {errors.email?.type === 'required' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'required' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
                         {signInError}
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
-
+                    <p> <small>New to Doctors Portal Web? <Link className='text-secondary' to="/signup"> Create New Account </Link></small> </p>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
