@@ -41,6 +41,9 @@ const Navbar = () => {
                     {menuItems}
                 </ul>
             </div>
+            <div className="navbar-end">
+            <label for="dashBoard-sidebar" class="btn btn-primary drawer-button lg:hidden">Open Sidebar</label>
+            </div>
 
         </div>
     );
